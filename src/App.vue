@@ -1,30 +1,49 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import ButtonComponent from '@components/ButtonComponent.vue';
+import ListDefinition from '@components/ListDefinition.vue';
+import ListLegenda from '@components/ListLegenda.vue';
+import LinkComponent from '@components/Links/LinkComponent.vue';
+import LinkBack from '@components/Links/LinkBack.vue';
+import LinkMenu from '@components/Links/LinkMenu.vue';
+import IconComponent from '@components/Icons/IconComponent.vue';
+import { ColorValue} from './utilityTypes.ts'
+
+const definitionList = [{
+  name: 'name',
+  label: 'Name',
+  value: 'John Doe'
+}, {
+  name: 'email',
+  label: 'Email',
+  value: 'Stuff' 
+}]
+
+const legendaList = [{
+  name: 'Monitoring',
+  color: '#b54cb0'
+},
+{
+  name: 'Notitie',
+  color: '#8c4bb6'
+},
+{
+  name: 'Snelle scan',
+  color: '#5b4ab7'
+},
+] satisfies {name: string, color: ColorValue}[]
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <ButtonComponent outline ></ButtonComponent>
+  <ListDefinition :list-items="definitionList"></ListDefinition>
+  <ListLegenda :items="legendaList"></ListLegenda>
+  <LinkComponent label="Link"></LinkComponent>
+  <LinkBack label="Link"></LinkBack>
+  <LinkMenu icon="chat" label="Something"></LinkMenu>
+  <IconComponent source="facade" name="inpandig"></IconComponent>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+
 </style>
