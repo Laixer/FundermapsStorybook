@@ -2,12 +2,13 @@
 import IconComponent from './IconComponent.vue';
 import { IconMap } from '@/iconTypes'
 defineProps<{
-    name: IconMap['fundermaps']
+    name: IconMap['fundermaps'],
+    accent?: 'blue' | 'green'
 }>()
 </script>
 
 <template>
-    <IconComponent source="fundermaps" :name="name" />
+    <IconComponent source="fundermaps" :accent="accent" :name="name" />
 </template>
 
 <style scoped></style>

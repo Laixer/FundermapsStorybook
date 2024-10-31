@@ -36,6 +36,10 @@ const meta = {
       table: {
         type: { summary: 'U extends IconMap[T]' },
       }
+     },
+     accent: {
+      control: 'select',
+      options: [false, 'green', 'blue']
      }
   },
   
@@ -123,7 +127,7 @@ export const Fundermaps: Story = {
   },
   argTypes: {
     name: {
-      options: iconsMap['foundation']
+      options: iconsMap['fundermaps']
     },
   },
   parameters: {

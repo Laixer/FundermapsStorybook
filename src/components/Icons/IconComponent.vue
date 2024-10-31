@@ -3,7 +3,7 @@
   import { IconMap } from '@/iconTypes';
   import { defineAsyncComponent } from 'vue';
 
-  const { source, name } = defineProps<{ source: T, name: U }>()
+  const { source, name } = defineProps<{ source: T, name: U, accent?: 'blue' | 'green' }>()
 
   const computedSource = computed(() => {
     return source === 'general' ? '' : `${source}/`
@@ -21,5 +21,5 @@
 </script>
 
 <template>
-  <component v-if="icon" :is="icon" />
+  <component :class="{[`accent-color-${accent}`]: accent}" v-if="icon" :is="icon" />
 </template>
